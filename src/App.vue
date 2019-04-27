@@ -3,8 +3,10 @@
     <h1>Witaj w systemie do zapisów na zajęcia</h1>
     <div v-if="isLogged == false">
       <div>Zaloguj się e-mailem:
-        <input type="email" v-model="email">
-        <button @click="logIn()">Zaloguj</button>
+        <form @submit.prevent="">
+          <input type="email" v-model="email">
+          <button @click="logIn()">Zaloguj</button>
+        </form>
       </div>
     </div>
     <div v-else-if="isLogged == true">
@@ -16,6 +18,7 @@
 </template>
 
 <script>
+  import "milligram";
 export default {
 
     data() {
